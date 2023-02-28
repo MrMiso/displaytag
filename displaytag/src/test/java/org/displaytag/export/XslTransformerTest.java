@@ -21,6 +21,7 @@
  */
 package org.displaytag.export;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -38,7 +39,9 @@ import javax.xml.transform.stream.StreamSource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfReader;
+import com.itextpdf.kernel.pdf.PdfWriter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -58,9 +61,11 @@ class XslTransformerTest {
         final File f = File.createTempFile("inline", "pdf");
         final String styleSheetPath = "/org/displaytag/export/asFo_us.xsl";
         FopExportView.transform(XslTransformerTest.XML, styleSheetPath, f);
-        final PdfReader reader = new PdfReader(f.getAbsolutePath());
+        final ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+
+        final PdfDocument pdfDoc = new PdfDocument(new PdfReader(f.getAbsolutePath()), new PdfWriter(outStream));
         // byte[] page = reader.getPageContent(1);
-        Assertions.assertEquals(1, reader.getNumberOfPages(), "Expected a valid pdf file with a single page");
+        Assertions.assertEquals(1, pdfDoc.getNumberOfPages(), "Expected a valid pdf file with a single page");
 
     }
 
