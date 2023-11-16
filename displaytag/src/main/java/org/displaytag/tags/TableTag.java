@@ -226,6 +226,8 @@ public class TableTag extends HtmlTableTag {
      * Clear the current page and sort status.
      */
     private boolean clearStatus;
+    
+    private boolean extraHeader;
 
     /**
      * Use form post in paging/sorting links (javascript required).
@@ -409,6 +411,11 @@ public class TableTag extends HtmlTableTag {
      */
     public void setClearStatus(final boolean clearStatus) {
         this.clearStatus = clearStatus;
+    }
+    
+    public void setExtraHeader(final boolean extraHeader) {
+        this.extraHeader = extraHeader;
+        this.tableModel.setExtraHeader(extraHeader);
     }
 
     /**
@@ -1626,6 +1633,7 @@ public class TableTag extends HtmlTableTag {
         this.uid = null;
         this.keepStatus = false;
         this.clearStatus = false;
+        this.extraHeader = false;
         this.form = null;
     }
 

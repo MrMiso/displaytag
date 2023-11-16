@@ -274,6 +274,13 @@
       <description>Clears the current paging/sort status saved in session.</description>
     </attribute>
     <attribute>
+      <name>extraHeader</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>boolean</type>
+      <description>Tells table to use </description>
+    </attribute>
+    <attribute>
       <name>form</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
@@ -329,6 +336,13 @@
       <rtexprvalue>true</rtexprvalue>
       <type>java.lang.String</type>
       <description>title of the column (text for the th cell)</description>
+    </attribute>
+    <attribute>
+      <name>extraHeaderTitle</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.String</type>
+      <description>title of the extra header (text for the th cell)</description>
     </attribute>
     <attribute>
       <name>comparator</name>

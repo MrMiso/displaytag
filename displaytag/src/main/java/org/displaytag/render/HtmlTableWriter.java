@@ -581,6 +581,27 @@ public class HtmlTableWriter extends TableWriterAdapter {
 
         // close tr
         this.write(TagConstants.TAG_TR_CLOSE);
+        
+        if (model.isExtraHeader()) {
+        	 // open tr
+            this.write(TagConstants.TAG_TR_OPEN);
+            
+            // get the header cell
+            final HeaderCell headerCell = iterator.next();
+            
+            // append th with html attributes
+            this.write(headerCell.getHeaderOpenTag());
+
+            // extra title
+            String header = headerCell.getExtraHeaderTitle();
+
+
+            this.write(header);
+            this.write(headerCell.getHeaderCloseTag());
+            
+            // close tr
+            this.write(TagConstants.TAG_TR_CLOSE);
+        }
 
         // close thead
         this.write(TagConstants.TAG_THEAD_CLOSE);

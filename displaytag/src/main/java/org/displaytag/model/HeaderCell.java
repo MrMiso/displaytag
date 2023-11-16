@@ -75,6 +75,8 @@ public class HeaderCell {
      * column title.
      */
     private String title;
+    
+    private String extraHeaderTitle;
 
     /** is the column sortable?. */
     private boolean sortable;
@@ -634,5 +636,19 @@ public class HeaderCell {
             }
         }
     }
+
+	/**
+	 * @return the extraHeaderTitle
+	 */
+	public String getExtraHeaderTitle() {
+		return extraHeaderTitle;
+	}
+
+	/**
+	 * @param extraHeaderTitle the extraHeaderTitle to set
+	 */
+	public void setExtraHeaderTitle(String extraHeaderTitle) {
+		this.extraHeaderTitle = extraHeaderTitle;
+	}
 
 }

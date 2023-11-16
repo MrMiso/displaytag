@@ -105,6 +105,8 @@ public class ColumnTag extends BodyTagSupport implements MediaUtil.SupportsMedia
      * column (optional).
      */
     private String title;
+    
+    private String extraHeaderTitle;
 
     /**
      * by default, null values don't appear in the list, by setting viewNulls to 'true', then null values will appear as
@@ -707,6 +709,7 @@ public class ColumnTag extends BodyTagSupport implements MediaUtil.SupportsMedia
         headerCell.setHeaderAttributes((HtmlAttributeMap) this.headerAttributeMap.clone());
         headerCell.setHtmlAttributes((HtmlAttributeMap) this.attributeMap.clone());
         headerCell.setTitle(evalTitle);
+        headerCell.setExtraHeaderTitle(this.extraHeaderTitle);
         headerCell.setSortable(this.sortable);
 
         final List<DisplaytagColumnDecorator> decorators = new ArrayList<>();
@@ -839,6 +842,7 @@ public class ColumnTag extends BodyTagSupport implements MediaUtil.SupportsMedia
         this.format = null;
         this.value = null;
         this.totaled = false;
+        this.extraHeaderTitle = null;
     }
 
     /**
@@ -902,7 +906,22 @@ public class ColumnTag extends BodyTagSupport implements MediaUtil.SupportsMedia
                 .append("alreadySorted", this.alreadySorted) //$NON-NLS-1$
                 .append("sortProperty", this.sortProperty) //$NON-NLS-1$
                 .append("defaultSortOrder", this.defaultorder) //$NON-NLS-1$
+                .append("extraHeaderTitle", this.extraHeaderTitle) //$NON-NLS-1$
                 .toString();
     }
+
+	/**
+	 * @return the extraHeaderTitle
+	 */
+	public String getExtraHeaderTitle() {
+		return extraHeaderTitle;
+	}
+
+	/**
+	 * @param extraHeaderTitle the extraHeaderTitle to set
+	 */
+	public void setExtraHeaderTitle(String extraHeaderTitle) {
+		this.extraHeaderTitle = extraHeaderTitle;
+	}
 
 }

@@ -138,6 +138,8 @@ public class TableModel {
 
     /** The totaler. */
     private TableTotaler totaler;
+    
+    private boolean extraHeader;
 
     /**
      * Constructor for TableModel.
@@ -636,4 +638,18 @@ public class TableModel {
         this.totaler.reset();
         this.totaler.init(this);
     }
+
+	/**
+	 * @return the hasExtraHeader
+	 */
+	public boolean isExtraHeader() {
+		return extraHeader;
+	}
+
+	/**
+	 * @param hasExtraHeader the hasExtraHeader to set
+	 */
+	public void setExtraHeader(boolean hasExtraHeader) {
+		this.extraHeader = hasExtraHeader;
+	}
 }
